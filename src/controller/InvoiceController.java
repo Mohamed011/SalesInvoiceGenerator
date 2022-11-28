@@ -58,7 +58,12 @@ public class InvoiceController implements ActionListener {
 			saveFile();
 			break;
 		case "cancel":
-			cancelUpdate();
+			try {
+				cancelUpdate();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			break;
 		case "save":
 			saveUpdate();
@@ -120,12 +125,13 @@ public class InvoiceController implements ActionListener {
 			}
 	}
 
-	private void cancelUpdate() {
-		homePage.textField.setText("");
-		homePage.textField_1.setText("");
-		homePage.textField_2.setText("");
-		homePage.textField_3.setText("");
-		homePage.daDefaultTableModel1.setRowCount(0);
+	private void cancelUpdate() throws IOException {
+		deleteInvoice();
+//		homePage.textField.setText("");
+//		homePage.textField_1.setText("");
+//		homePage.textField_2.setText("");
+//		homePage.textField_3.setText("");
+//		homePage.daDefaultTableModel1.setRowCount(0);
 	}
 
 	private void saveFile() {
