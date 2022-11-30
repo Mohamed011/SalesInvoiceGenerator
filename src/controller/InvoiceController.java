@@ -114,6 +114,11 @@ public class InvoiceController implements ActionListener {
 				total += (Integer.parseInt(tempInvoices.get(i).getItemPrice())
 						* (Integer.parseInt(tempInvoices.get(i).getItemCount())));
 		}
+		if(homePage.table.getSelectedRow()==0 || homePage.table.getSelectedRow()==1)
+		{
+		   for(int i=0;i<3;i++)
+		      total+=Integer.parseInt(homePage.daDefaultTableModel1.getValueAt(i,4).toString());
+		}
 		return total;
 	}
 
